@@ -21,6 +21,18 @@
         </nav>
     </header>
     <main class="container-fluid">
+        <div class="row justify-content-end">
+            <div class="col-3">
+                <div class="toast-pf alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        <span>&times;</span>
+                    </button>
+                    <span class="pficon pficon-ok"></span>
+                    Nice Job Completing a Task!
+                </div>
+            </div>
+        </div>
+
         <div class="row mt-4">
             <div class="col-12">
                 <form onsubmit="app.listsController.createList(event)">
@@ -36,7 +48,9 @@
             </div>
         </div>
 
-        <div class="row" id="lists"></div>
+        <div class="grid">
+            <div class="row" id="lists"></div>
+        </div>
 
 
 
@@ -53,10 +67,13 @@
     </footer>
 
 
+
+
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

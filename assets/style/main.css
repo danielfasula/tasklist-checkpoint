@@ -5,6 +5,20 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+
+ .completed {
+   text-decoration: line-through;
+ }
+
+.grid-sizer,
+.grid-item {
+   width: 20%; 
+}
+.grid-item--width2 {
+  width: 40%; 
+}
+
 :root {
   --blue: blue;
   --indigo: indigo;

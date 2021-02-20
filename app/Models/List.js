@@ -10,8 +10,7 @@ export default class List {
     // TODO create template for html
     get Template() {
         return /* html */ `
-
-                <div class="col-4 my-2">
+                <div class="grid-item col-3 my-2">
                 <div class="card" style="background-color: ${this.color};" >
                     <h1 class="text-center my-2">${this.title}<button class="close mt-3 mr-3"
                     onclick="app.listsController.deleteList('${this.id}')"><span >&times;</span></button> </h1>
@@ -29,6 +28,7 @@ export default class List {
                     </form>
                     </div>
                 </div>
+
         `
     }
     get Tasks() {
