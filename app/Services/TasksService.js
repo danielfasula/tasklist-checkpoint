@@ -11,31 +11,37 @@ class TasksService {
     }
     addTask(newTask) {
         ProxyState.tasks = [...ProxyState.tasks, new Task(newTask)]
+        swal({
+            icon: 'success',
+            text: 'You created a new task!'
+        })
     }
     deleteTask(taskId) {
 
-        let r = confirm('You sure you wanna delete that?')
-        if (r) {
-            ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
-        }
+        // let r = confirm('You sure you wanna delete that?')
+        // if (r) {
+        //     ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+        // }
 
+        swal({
+            title: "Are you sure you want to delete that??",
+            text: "Once deleted, it'll be gone forever!",
+            // icon: "warning",
+            buttons: ['Nvm, Still Need That', 'Get Rid of It!'],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+                    swal({
+                        text: 'SEE YA!',
+                        icon: 'success'
+                    })
 
-        // swal({
-        //     title: "Are you sure you want to delete that??",
-        //     text: "Once deleted, it'll be gone forever!",
-        //     icon: "warning",
-        //     buttons: true,
-        //     dangerMode: true,
-        // })
-        //     .then((willDelete) => {
-        //         if (willDelete) {
-        //             ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
-        //             swal('SEE YA!')
-
-        //         } else {
-        //             swal("KEEP THE TASK!");
-        //         }
-        //     });
+                } else {
+                    swal("KEEP THE TASK!");
+                }
+            });
     }
     changeCompletion(taskId) {
         let task = ProxyState.tasks.find(t => t.id == taskId)

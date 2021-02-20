@@ -8,15 +8,17 @@ export default class List {
         this.color = color
     }
     // TODO create template for html
+    //     <div class="col-3 my-2"></div>
+
     get Template() {
         return /* html */ `
-                <div class="grid-item col-3 my-2">
+        <figure>
                 <div class="card" style="background-color: ${this.color};" >
                     <h1 class="text-center my-2">${this.title}<button class="close mt-3 mr-3"
                     onclick="app.listsController.deleteList('${this.id}')"><span >&times;</span></button> </h1>
                     <form class="text-center mt-2" onsubmit="app.tasksController.addTask(event, '${this.id}')">
                     <div class="form-group">
-                    <input type="text" name="description" placeholder="Enter A New Task" minlength="3" maxlength="50">
+                    <input type="text" name="description" placeholder="Enter A New Task" minlength="3" maxlength="50" required>
                     <button type="submit">Add Task</button>
                     <h3 class="mt-3">Tasks</h3>
                         <h4>${ProxyState.tasks.filter(t => t.completion == true && t.listId == this.id).length} / ${ProxyState.tasks.filter(t => t.listId == this.id).length} Completed</h4>
@@ -27,7 +29,7 @@ export default class List {
                         </div>
                     </form>
                     </div>
-                </div>
+            </figure>
 
         `
     }

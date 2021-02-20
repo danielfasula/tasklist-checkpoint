@@ -3,7 +3,7 @@ import List from "../Models/List.js";
 import Task from '../Models/Task.js'
 
 export function saveState() {
-    localStorage.setItem('listoflists', JSON.stringify({
+    localStorage.setItem('taskmanager', JSON.stringify({
         lists: ProxyState.lists,
         tasks: ProxyState.tasks
 
@@ -11,7 +11,7 @@ export function saveState() {
 }
 
 export function loadState() {
-    let data = JSON.parse(localStorage.getItem('listoflists'))
+    let data = JSON.parse(localStorage.getItem('taskmanager'))
     if (data) {
         ProxyState.lists = data.lists.map(newList => new List(newList))
         ProxyState.tasks = data.tasks.map(newTask => new Task(newTask))
