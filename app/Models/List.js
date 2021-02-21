@@ -7,8 +7,6 @@ export default class List {
         this.id = id
         this.color = color
     }
-    // TODO create template for html
-    //     <div class="col-3 my-2"></div>
 
     get Template() {
         return /* html */ `

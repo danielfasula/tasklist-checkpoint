@@ -5,6 +5,8 @@ function _draw() {
     let template = ''
     ProxyState.lists.forEach(l => template += l.Template)
     document.getElementById('lists').innerHTML = template
+
+    
 }
 
 export default class ListsController {
