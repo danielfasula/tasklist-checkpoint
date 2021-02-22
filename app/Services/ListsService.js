@@ -6,6 +6,15 @@ class ListsService {
     constructor() {
         ProxyState.on('lists', saveState)
     }
+
+    // Swal.fire({
+    //     position: 'top-end',
+    //     icon: 'success',
+    //     title: 'Your work has been saved',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    // })
+
     createList(newList) {
         ProxyState.lists = [...ProxyState.lists, new List(newList)]
         swal({
